@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const shortid = require('shortid');
 const dotenv = require('dotenv');
+const validator = require('validator');
 
 dotenv.config();
 
@@ -10,8 +11,14 @@ console.log(urlCode);
 const ShortUrlSchema = new mongoose.Schema({
   fullUrl: {
     type: String,
-    required: true,
+    required: [true, 'Please give a URL'],
     trim: true,
+    validate: {
+      validator(url) {
+        return validator.isURL(url);
+      },
+      message: 'Please enter a valid URL',
+    },
   },
   urlID: {
     type: String,
