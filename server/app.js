@@ -4,25 +4,19 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const ShortUrl = require('./models/ShortUrl');
+const connectDB = require('./db');
 
-dotenv.config();
-
-const connectDB = async () => {
-  try {
-    const conn = await mongoose.connect(process.env.DB_URI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
-    console.log(`Database connected on ${conn.connection.host}`);
-  } catch (error) {
-    console.error(error);
-    process.exit(1);
-  }
-};
+if (process.env.NODE_ENV === 'development') {
+  dotenv.config();
+}
 
 connectDB();
 
 const app = express();
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '/public')));
+}
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));

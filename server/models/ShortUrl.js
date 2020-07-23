@@ -6,7 +6,6 @@ const validator = require('validator');
 dotenv.config();
 
 const urlCode = shortid.generate;
-console.log(urlCode);
 
 const ShortUrlSchema = new mongoose.Schema({
   fullUrl: {
