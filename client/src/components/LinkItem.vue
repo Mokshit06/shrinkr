@@ -171,7 +171,6 @@ export default {
     },
     async scanUrl() {
       const codeData = await QRCode.toDataURL(this.link.shortUrl);
-      console.log(codeData);
       this.QrCodeSrc = codeData;
     },
     toggleQrCode() {

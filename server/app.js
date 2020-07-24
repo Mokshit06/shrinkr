@@ -1,7 +1,6 @@
 const path = require('path');
 const express = require('express');
 const dotenv = require('dotenv');
-const mongoose = require('mongoose');
 const cors = require('cors');
 const ShortUrl = require('./models/ShortUrl');
 const connectDB = require('./db');
