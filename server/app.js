@@ -21,7 +21,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-app.use('/api/', require('./routes/url'));
+app.use('/api', require('./routes/url'));
 
 app.get('/:urlID', async (req, res) => {
   const { urlID } = req.params;
