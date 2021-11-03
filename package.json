@@ -19,7 +19,7 @@
     "mongoose": "^5.9.25",
     "qrcode": "^1.4.4",
     "shortid": "^2.2.15",
-    "validator": "^13.1.1"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.4"
